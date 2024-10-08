@@ -197,14 +197,13 @@ class _AgePageState extends State<AgePage> {
                       padding: const EdgeInsets.all(16.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          updateUserInfo(); // Update user info in Firestore
+                          updateUserInfo();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 8, 168, 231),
                           minimumSize: Size(double.infinity, 50),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                14), // Adjust the value for more/less circular shape
+                            borderRadius: BorderRadius.circular(14),
                           ),
                         ),
                         child: Text('Save Changes',

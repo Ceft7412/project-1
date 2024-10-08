@@ -8,7 +8,6 @@ import 'package:project/modals/agepage.dart';
 import 'package:project/modals/contactnumberpage.dart';
 import 'dart:ui';
 
-import 'package:project/modals/emailpage.dart';
 import 'package:project/modals/namepage.dart';
 import 'package:project/modals/passwordpage.dart';
 import 'package:project/utils.dart';
@@ -63,7 +62,6 @@ class _AccountPageState extends State<AccountPage> {
   Future<void> getUserInfo() async {
     try {
       // Reference to the Firestore collection (users)
-
       DocumentSnapshot userDoc = await FirebaseFirestore.instance
           .collection('User')
           .doc(userid) // Document ID is the user's UID
@@ -93,11 +91,6 @@ class _AccountPageState extends State<AccountPage> {
       });
     }
   }
-
-  // void navigateToEmailPage() {
-  //   Navigator.of(context)
-  //       .push(MaterialPageRoute(builder: (context) => EmailPage()));
-  // }
 
   Future<void> navigateToNamePage() async {
     final result = await Navigator.of(context).push(
@@ -180,7 +173,6 @@ class _AccountPageState extends State<AccountPage> {
   @override
   void initState() {
     super.initState();
-    // Fetch user info when the widget is initialized
     getUserInfo();
   }
 
@@ -205,7 +197,7 @@ class _AccountPageState extends State<AccountPage> {
           BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
             child: Container(
-              color: Colors.black.withOpacity(0.1), // Adjust opacity as needed
+              color: Colors.black.withOpacity(0.1),
             ),
           ),
           Container(
@@ -217,15 +209,6 @@ class _AccountPageState extends State<AccountPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        // Text(
-                        //   'Edit Profile',
-                        //   style: TextStyle(
-                        //     fontSize: 26,
-                        //     fontWeight: FontWeight.bold,
-                        //     color: Color.fromARGB(255, 8, 168, 231),
-                        //   ),
-                        // ),
-                        // SizedBox(height: 30),
                         Padding(
                           padding: const EdgeInsets.only(top: 40.0, left: 10.0),
                           child: Align(
@@ -263,23 +246,6 @@ class _AccountPageState extends State<AccountPage> {
                                 ),
                               ),
                             ),
-
-                            // Positioned(
-                            //   bottom: 0,
-                            //   right: 30,
-                            //   child: GestureDetector(
-                            //     onTap: () {},
-                            //     child: Container(
-                            //       decoration: BoxDecoration(
-                            //         shape: BoxShape.circle,
-                            //         color: Colors.white,
-                            //       ),
-                            //       padding: const EdgeInsets.all(4),
-                            //       child: Icon(Icons.edit,
-                            //           size: 20, color: Color.fromARGB(255, 8, 168, 231)),
-                            //     ),
-                            //   ),
-                            // )
                           ],
                         ),
                         SizedBox(height: 20),
@@ -295,16 +261,13 @@ class _AccountPageState extends State<AccountPage> {
                               color: Color.fromARGB(255, 107, 107, 107)),
                         ),
                         SizedBox(height: 20),
-
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
                               margin: const EdgeInsets.symmetric(
-                                  vertical: 6,
-                                  horizontal:
-                                      16.0), // Adjust the margin as needed
+                                  vertical: 6, horizontal: 16.0),
                               child: Text(
                                 'Basic information',
                                 style: const TextStyle(
@@ -340,9 +303,7 @@ class _AccountPageState extends State<AccountPage> {
                             ),
                             Container(
                               margin: const EdgeInsets.symmetric(
-                                  vertical: 6,
-                                  horizontal:
-                                      16.0), // Adjust the margin as needed
+                                  vertical: 6, horizontal: 16.0),
                               child: Text(
                                 'Contact information',
                                 style: const TextStyle(
@@ -372,9 +333,7 @@ class _AccountPageState extends State<AccountPage> {
                             ),
                             Container(
                               margin: const EdgeInsets.symmetric(
-                                  vertical: 6,
-                                  horizontal:
-                                      16.0), // Adjust the margin as needed
+                                  vertical: 6, horizontal: 16.0),
                               child: Text(
                                 'Address',
                                 style: const TextStyle(
@@ -403,14 +362,7 @@ class _AccountPageState extends State<AccountPage> {
                             ),
                           ],
                         ),
-
                         const SizedBox(height: 15),
-                        // ElevatedButton(
-                        //   onPressed: () async {
-                        //     await FirebaseAuth.instance.signOut();
-                        //   },
-                        //   child: const Text('Sign Out'),
-                        // ),
                       ],
                     ),
                   ),
